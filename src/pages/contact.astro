@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import { site } from '../data/site';
 ---
@@ -16,13 +17,19 @@ import { site } from '../data/site';
 				Fill out the form below and we’ll get back to you within 24 hours with a customised quote.
 			</p>
 			<dl class="mt-8 space-y-3 text-sm">
-				<div>
-					<dt class="font-semibold">Phone</dt>
-					<dd><a href={site.phoneHref} class="text-accent">{site.phone}</a></dd>
+				<div class="flex items-center gap-2">
+					<Icon name="phone" class="size-4 text-accent" />
+					<div>
+						<dt class="sr-only">Phone</dt>
+						<dd><a href={site.phoneHref} class="text-accent">{site.phone}</a></dd>
+					</div>
 				</div>
-				<div>
-					<dt class="font-semibold">Email</dt>
-					<dd><a href={`mailto:${site.email}`} class="text-accent">{site.email}</a></dd>
+				<div class="flex items-center gap-2">
+					<Icon name="mail" class="size-4 text-accent" />
+					<div>
+						<dt class="sr-only">Email</dt>
+						<dd><a href={`mailto:${site.email}`} class="text-accent">{site.email}</a></dd>
+					</div>
 				</div>
 				<div>
 					<dt class="font-semibold">Service area</dt>

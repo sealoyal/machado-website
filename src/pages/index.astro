@@ -1,15 +1,29 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 import Placeholder from '../components/Placeholder.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import Testimonials from '../components/Testimonials.astro';
+import hero from '../assets/hero-commercial-cleaning.jpg';
 import { services, site } from '../data/site';
 ---
 
 <BaseLayout title={site.name} description={site.description}>
-	<section class="bg-navy text-white">
-		<div class="mx-auto grid max-w-5xl items-center gap-10 px-5 py-16 md:grid-cols-[1.2fr_0.8fr] md:py-20">
-			<div>
+	<section class="relative isolate overflow-hidden bg-navy text-white">
+		<Image
+			src={hero}
+			alt=""
+			width={1024}
+			height={682}
+			layout="none"
+			loading="eager"
+			fetchpriority="high"
+			class="absolute inset-0 -z-10 h-full w-full object-cover"
+		/>
+		<div class="absolute inset-0 -z-10 bg-navy/55 md:bg-transparent md:bg-gradient-to-r md:from-navy/90 md:via-navy/55 md:to-navy/20" aria-hidden="true"></div>
+		<div class="mx-auto max-w-5xl px-5 py-20 md:py-28">
+			<div class="max-w-xl">
 				<p class="text-sm font-semibold uppercase tracking-[0.14em] text-sun">
 					Solar panel cleaning, Adelaide, South Australia
 				</p>
@@ -21,12 +35,12 @@ import { services, site } from '../data/site';
 					<a href="/contact" class="rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy focus-visible:outline-white">
 						Get a quote
 					</a>
-					<a href={site.phoneHref} class="rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white focus-visible:outline-white">
+					<a href={site.phoneHref} class="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white focus-visible:outline-white">
+						<Icon name="phone" />
 						Call us
 					</a>
 				</div>
 			</div>
-			<Placeholder label="Hero image placeholder" />
 		</div>
 	</section>
 

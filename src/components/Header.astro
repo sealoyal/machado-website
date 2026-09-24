@@ -39,8 +39,11 @@ function isCurrent(href: string) {
 						href={item.href}
 						aria-current={isCurrent(item.href) ? 'page' : undefined}
 						class:list={[
-							'rounded-md px-2 py-2 text-sm font-semibold',
-							isCurrent(item.href) ? 'text-accent' : 'text-ink',
+							item.href === '/contact'
+								? 'rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy'
+								: 'rounded-md px-2 py-2 text-sm font-semibold',
+							item.href !== '/contact' && (isCurrent(item.href) ? 'text-accent' : 'text-ink'),
+							item.href === '/contact' && isCurrent(item.href) && 'ring-2 ring-navy',
 						]}
 					>
 						{item.label}

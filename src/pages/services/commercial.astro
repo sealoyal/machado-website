@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CommercialAssessmentForm from '../../components/CommercialAssessmentForm.astro';
+import Icon from '../../components/Icon.astro';
 import Placeholder from '../../components/Placeholder.astro';
 import { site } from '../../data/site';
 
@@ -128,7 +129,8 @@ const feedback = [
 					<a href="#assessment" class="rounded-full bg-green px-5 py-3 text-sm font-semibold text-navy">
 						Request a commercial assessment
 					</a>
-					<a href={site.phoneHref} class="rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy">
+					<a href={site.phoneHref} class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy">
+						<Icon name="phone" />
 						Call {site.phone}
 					</a>
 				</div>
@@ -408,7 +410,8 @@ const feedback = [
 				<a href="#free-assessment" class="rounded-full bg-green px-5 py-3 text-sm font-semibold text-navy">
 					Request a commercial assessment
 				</a>
-				<a href={site.phoneHref} class="rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy">
+				<a href={site.phoneHref} class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy">
+					<Icon name="phone" />
 					Call {site.phone}
 				</a>
 			</div>
