@@ -5,6 +5,7 @@ export const site = {
 		'Solar panel cleaning and maintenance in Adelaide and South Australia.',
 	phone: '0411 676 346',
 	phoneHref: 'tel:+61411676346',
+	whatsappHref: 'https://wa.me/61411676346',
 	email: 'australiansolarcare@gmail.com',
 	area: 'Adelaide and South Australia',
 } as const;

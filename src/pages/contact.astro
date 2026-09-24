@@ -29,6 +29,25 @@ import { site } from '../data/site';
 					</dd>
 				</div>
 				<div>
+					<dt class="sr-only">WhatsApp</dt>
+					<dd>
+						<a
+							href={site.whatsappHref}
+							class="flex items-center gap-3 rounded-2xl border border-line px-4 py-3"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<span class="grid size-10 place-items-center rounded-full bg-[#25D366]/15 text-[#128C7E]">
+								<Icon name="whatsapp" />
+							</span>
+							<span>
+								<span class="block text-xs font-semibold uppercase tracking-wide text-muted">WhatsApp</span>
+								<span class="font-semibold text-ink">{site.phone}</span>
+							</span>
+						</a>
+					</dd>
+				</div>
+				<div>
 					<dt class="sr-only">Email</dt>
 					<dd>
 						<a href={`mailto:${site.email}`} class="flex items-center gap-3 rounded-2xl border border-line px-4 py-3">

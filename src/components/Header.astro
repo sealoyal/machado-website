@@ -30,7 +30,7 @@ function isCurrent(href: string) {
 			href="/contact"
 			aria-current={isCurrent('/contact') ? 'page' : undefined}
 			class:list={[
-				'ml-auto rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy md:hidden',
+				'ml-auto rounded-full bg-green px-4 py-2 text-base font-semibold text-navy md:hidden',
 				isCurrent('/contact') && 'ring-2 ring-navy',
 			]}
 		>
@@ -58,8 +58,8 @@ function isCurrent(href: string) {
 						aria-current={isCurrent(item.href) ? 'page' : undefined}
 						class:list={[
 							item.href === '/contact'
-								? 'max-md:hidden rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy md:ml-2'
-								: 'rounded-md px-2 py-2 text-sm font-semibold',
+								? 'max-md:hidden rounded-full bg-green px-4 py-2 text-base font-semibold text-navy md:ml-2'
+								: 'rounded-md px-2 py-2 text-base font-semibold',
 							item.href !== '/contact' && (isCurrent(item.href) ? 'text-accent' : 'text-ink'),
 							item.href === '/contact' && isCurrent(item.href) && 'ring-2 ring-navy',
 						]}
