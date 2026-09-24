@@ -1,6 +1,8 @@
 ---
 import Icon from './Icon.astro';
 import { nav, site } from '../data/site';
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="mt-auto bg-navy text-white">
@@ -58,6 +60,6 @@ import { nav, site } from '../data/site';
 		</nav>
 	</div>
 	<p class="mx-auto max-w-5xl border-t border-white/15 px-5 py-5 text-sm text-white/60">
-		Australian Solar Care Pty Ltd © 2014–2025
+		Australian Solar Care Pty Ltd © {year}
 	</p>
 </footer>

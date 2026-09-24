@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
 import Icon from './Icon.astro';
-import { nav } from '../data/site';
+import { nav, services } from '../data/site';
 
 const pathname = Astro.url.pathname;
 
@@ -52,21 +52,51 @@ function isCurrent(href: string) {
 		</label>
 		<nav id="site-nav" aria-label="Primary">
 			{
-				nav.map((item) => (
-					<a
-						href={item.href}
-						aria-current={isCurrent(item.href) ? 'page' : undefined}
-						class:list={[
-							item.href === '/contact'
-								? 'max-md:hidden rounded-full bg-green px-4 py-2 text-base font-semibold text-navy md:ml-2'
-								: 'rounded-md px-2 py-2 text-base font-semibold',
-							item.href !== '/contact' && (isCurrent(item.href) ? 'text-accent' : 'text-ink'),
-							item.href === '/contact' && isCurrent(item.href) && 'ring-2 ring-navy',
-						]}
-					>
-						{item.label}
-					</a>
-				))
+				nav.map((item) =>
+					item.href === '/services' ? (
+						<div class="services-item">
+							<a
+								href={item.href}
+								aria-current={isCurrent(item.href) ? 'page' : undefined}
+								aria-haspopup="true"
+								class:list={[
+									'inline-flex items-center gap-1 rounded-md px-2 py-2 text-base font-semibold',
+									isCurrent(item.href) ? 'text-accent' : 'text-ink',
+								]}
+							>
+								{item.label}
+								<Icon name="chevron" class="size-4 max-md:hidden" />
+							</a>
+							<div class="services-menu">
+								{
+									services.map((service) => (
+										<a
+											href={service.href}
+											aria-current={isCurrent(service.href) ? 'page' : undefined}
+											class:list={[isCurrent(service.href) && 'is-current']}
+										>
+											{service.title}
+										</a>
+									))
+								}
+							</div>
+						</div>
+					) : (
+						<a
+							href={item.href}
+							aria-current={isCurrent(item.href) ? 'page' : undefined}
+							class:list={[
+								item.href === '/contact'
+									? 'max-md:hidden rounded-full bg-green px-4 py-2 text-base font-semibold text-navy md:ml-2'
+									: 'rounded-md px-2 py-2 text-base font-semibold',
+								item.href !== '/contact' && (isCurrent(item.href) ? 'text-accent' : 'text-ink'),
+								item.href === '/contact' && isCurrent(item.href) && 'ring-2 ring-navy',
+							]}
+						>
+							{item.label}
+						</a>
+					),
+				)
 			}
 		</nav>
 	</div>

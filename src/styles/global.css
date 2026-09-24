@@ -84,6 +84,28 @@ h2 {
 	}
 }
 
+.services-menu {
+	display: flex;
+	flex-direction: column;
+	margin: 0.15rem 0 0.35rem 0.85rem;
+	border-left: 2px solid var(--color-line);
+	padding: 0.15rem 0 0.15rem 0.35rem;
+}
+
+.services-menu a {
+	border-radius: 0.5rem;
+	padding: 0.4rem 0.65rem;
+	color: var(--color-muted);
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.services-menu a.is-current,
+.services-menu a:hover {
+	color: var(--color-ink);
+	background: var(--color-accent-soft);
+}
+
 @media (min-width: 768px) {
 	label[for="nav-toggle"] {
 		display: none;
@@ -94,6 +116,45 @@ h2 {
 		align-items: center;
 		gap: 1.25rem;
 		margin-left: auto;
+	}
+
+	.services-item {
+		position: relative;
+	}
+
+	.services-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 20;
+		display: none;
+		min-width: 16rem;
+		margin: 0;
+		padding: 0.55rem 0.45rem 0.45rem 0.35rem;
+		border: 1px solid var(--color-line);
+		border-radius: 1rem;
+		background: #fff;
+		box-shadow: 0 12px 32px rgb(20 37 53 / 0.1);
+	}
+
+	.services-menu::before {
+		content: '';
+		position: absolute;
+		top: 0.7rem;
+		bottom: 0.7rem;
+		left: 0.7rem;
+		width: 2px;
+		border-radius: 999px;
+		background: var(--color-green);
+	}
+
+	.services-menu a {
+		padding-left: 1.15rem;
+	}
+
+	.services-item:hover .services-menu,
+	.services-item:focus-within .services-menu {
+		display: flex;
 	}
 }
 
