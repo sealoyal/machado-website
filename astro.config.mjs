@@ -3,8 +3,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-// Replace this origin before launch. It is only a placeholder for canonical URLs.
-const site = 'https://www.australiansolarcare.example';
+const site = 'https://www.australiansolarcare.com.au';
 
 // https://astro.build/config
 export default defineConfig({

@@ -9,9 +9,13 @@ import { nav, site } from '../data/site';
 			<p class="mt-2 max-w-sm text-sm leading-6 text-white/80">{site.tagline}</p>
 		</div>
 		<div class="text-sm leading-6">
-			<p>Phone: {site.phone}</p>
-			<p>Email: {site.email}</p>
-			<p>Service area: {site.area}</p>
+			<p>
+				Phone: <a href={site.phoneHref} class="font-semibold text-white">{site.phone}</a>
+			</p>
+			<p>
+				Email: <a href={`mailto:${site.email}`} class="font-semibold text-white">{site.email}</a>
+			</p>
+			<p>{site.area}</p>
 			<ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
 				{
 					nav.map((item) => (
@@ -23,6 +27,7 @@ import { nav, site } from '../data/site';
 					))
 				}
 			</ul>
+			<p class="mt-6 text-white/70">Australian Solar Care Pty Ltd © 2014–2025</p>
 		</div>
 	</div>
 </footer>

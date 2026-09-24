@@ -1,0 +1,14 @@
+---
+import { testimonials } from '../data/site';
+---
+
+<ul class="grid gap-4 md:grid-cols-3">
+	{
+		testimonials.map((item) => (
+			<li class="rounded-2xl border border-line bg-white p-6">
+				<p class="leading-7 text-muted">“{item.quote}”</p>
+				<p class="mt-4 font-semibold">{item.name}</p>
+			</li>
+		))
+	}
+</ul>

@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+	title="Commercial solutions"
+	description="Commercial and industrial solar panel cleaning for rooftops, warehouses, and solar farms across South Australia."
+>
+	<section class="bg-navy text-white">
+		<div class="mx-auto max-w-3xl px-5 py-16">
+			<p class="text-sm font-semibold text-sun">Commercial and industrial solar panel cleaning – Adelaide and South Australia</p>
+			<h1 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+				Adelaide commercial solar panel cleaning and maintenance experts
+			</h1>
+			<p class="mt-4 text-lg leading-8 text-white/80">
+				Professional large-scale solar cleaning services for commercial rooftops, warehouses, and utility-scale solar farms across South Australia. Over 10 years delivering performance optimisation and inverter output improvement for industrial clients.
+			</p>
+			<a href={site.phoneHref} class="mt-8 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy">
+				Call {site.phone}
+			</a>
+		</div>
+	</section>
+
+	<section class="mx-auto grid max-w-5xl items-center gap-8 px-5 py-16 md:grid-cols-2">
+		<div>
+			<h2 class="text-3xl font-semibold tracking-tight">Commercial solar panel cleaning in Adelaide</h2>
+			<p class="mt-4 leading-7 text-muted">
+				Australian Solar Care delivers safe, efficient large-scale solar panel cleaning using advanced equipment, including South Australia’s first solar cleaning robot. Our advanced equipment and safe cleaning methods help improve solar efficiency, extend system lifespan, and maximise your energy output. Regular solar panel maintenance ensures your investment performs at its best all year round.
+			</p>
+			<p class="mt-4 leading-7 text-muted">
+				We provide full O&M services — inspections, cleaning, shading control, reporting, and warranty support — to keep commercial PV systems performing reliably and meeting manufacturer requirements.
+			</p>
+			<a href="/services/operations-maintenance" class="mt-5 inline-flex text-sm font-semibold text-accent">
+				Commercial O&M services
+			</a>
+		</div>
+		<Placeholder label="Commercial cleaning video placeholder" />
+	</section>
+
+	<section class="border-t border-line bg-accent-soft">
+		<div class="mx-auto max-w-3xl px-5 py-16">
+			<h2 class="text-3xl font-semibold tracking-tight">Why industrial solar panel cleaning is critical in South Australia</h2>
+			<ul class="mt-6 space-y-4 leading-7 text-muted">
+				<li>
+					<strong class="text-ink">Solar performance degradation.</strong> Dust, pollution, and environmental deposits reduce energy output and inverter performance by up to 25% or more on heavily soiled commercial systems.
+				</li>
+				<li>
+					<strong class="text-ink">Hidden issues.</strong> Soiling masks underlying problems — cracks, hot spots, and damage remain invisible until they cause system failures.
+				</li>
+				<li>
+					<strong class="text-ink">Asset risk.</strong> Without regular cleaning and visual checks, minor issues escalate into costly repairs and unplanned downtime.
+				</li>
+			</ul>
+			<p class="mt-4 leading-7 text-muted">
+				Regular professional cleaning isn’t just about performance. It’s about maintaining clear visibility of your asset’s condition for informed maintenance decisions.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-3xl px-5 py-16">
+		<h2 class="text-3xl font-semibold tracking-tight">Visual safety and performance checks with every clean</h2>
+		<p class="mt-4 leading-7 text-muted">
+			Every commercial solar panel cleaning service includes a thorough visual inspection. We identify and document potential safety hazards, structural issues, and conditions that may affect system performance — giving facility managers clear visibility for maintenance planning.
+		</p>
+		<ul class="mt-4 list-disc space-y-2 pl-5 leading-7 text-muted">
+			<li>Bird nesting materials and debris under panels</li>
+			<li>Visible cracks, chips, or surface damage</li>
+			<li>Vegetation growth around ground-mount systems</li>
+			<li>Loose or damaged panel mounting and fixings</li>
+			<li>Debris buildup creating potential fire hazards</li>
+			<li>Visible cable or conduit damage</li>
+		</ul>
+		<p class="mt-4 leading-7 text-muted">
+			Our visual inspections identify observable conditions and potential hazards. For electrical testing or system repairs, we’ll recommend you consult a licensed electrician.
+		</p>
+		<div class="mt-8 grid gap-3 sm:grid-cols-2">
+			<Placeholder label="Pigeon nesting" />
+			<Placeholder label="Loose mounts" />
+			<Placeholder label="Bird droppings" />
+			<Placeholder label="Cracked panels" />
+		</div>
+	</section>
+
+	<section class="border-t border-line">
+		<div class="mx-auto max-w-5xl px-5 py-16">
+			<h2 class="text-3xl font-semibold tracking-tight">Before and after commercial solar cleaning results</h2>
+			<p class="mt-4 leading-7 text-muted">
+				See the transformation our large-scale solar cleaning services deliver on commercial rooftops and solar farms across Adelaide and South Australia.
+			</p>
+			<div class="mt-8 grid gap-4 sm:grid-cols-2">
+				<Placeholder label="120kW carport system – Adelaide" />
+				<Placeholder label="2.5MW warehouse – regional SA" />
+				<Placeholder label="120kW warehouse system – Adelaide" />
+				<Placeholder label="2.5MW warehouse – regional SA" />
+			</div>
+		</div>
+	</section>
+
+	<section class="border-t border-line bg-accent-soft">
+		<div class="mx-auto max-w-5xl px-5 py-16">
+			<h2 class="text-3xl font-semibold tracking-tight">Large-scale solar cleaning equipment and technology</h2>
+			<p class="mt-4 leading-7 text-muted">
+				We invest in commercial-grade equipment purpose-built for industrial and large-scale solar systems. Consistent, controlled cleaning with reduced risk to your infrastructure — including South Australia’s first solar cleaning robot.
+			</p>
+			<ul class="mt-8 grid gap-4 sm:grid-cols-2">
+				<li class="rounded-2xl bg-white p-6">
+					<h3 class="font-semibold">Solar cleaning robot</h3>
+					<p class="mt-2 text-muted">South Australia’s first solar cleaning robot for consistent, efficient cleaning across large arrays.</p>
+				</li>
+				<li class="rounded-2xl bg-white p-6">
+					<h3 class="font-semibold">Purified water systems</h3>
+					<p class="mt-2 text-muted">Deionised water eliminates mineral deposits and spotting, leaving panels streak-free.</p>
+				</li>
+				<li class="rounded-2xl bg-white p-6">
+					<h3 class="font-semibold">Electric brush systems</h3>
+					<p class="mt-2 text-muted">Purpose-built rotating brush systems designed specifically for solar panel cleaning without damage.</p>
+				</li>
+				<li class="rounded-2xl bg-white p-6">
+					<h3 class="font-semibold">EWP and high-access cleaning</h3>
+					<p class="mt-2 text-muted">Elevated work platforms and specialised access equipment for multi-storey commercial buildings and difficult sites.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-3xl px-5 py-16">
+		<h2 class="text-3xl font-semibold tracking-tight">Warehouse, industrial and solar farm cleaning</h2>
+		<p class="mt-4 leading-7 text-muted">
+			From warehouse solar cleaning to ground-mount solar farm cleaning, we have the equipment, expertise, and capacity to service commercial systems of any scale across Adelaide and regional South Australia.
+		</p>
+		<p class="mt-4 leading-7 text-muted">
+			Service area: Adelaide metropolitan, Adelaide Hills, Barossa, Murray Bridge, Yorke Peninsula, and regional South Australia.
+		</p>
+		<h3 class="mt-8 font-semibold">Clients we’ve worked with</h3>
+		<div class="mt-4 grid gap-3 sm:grid-cols-3">
+			<Placeholder label="Linfox" />
+			<Placeholder label="University of Adelaide" />
+			<Placeholder label="Adelaide Airport" />
+		</div>
+	</section>
+
+	<section class="border-t border-line bg-navy text-white">
+		<div class="mx-auto max-w-3xl px-5 py-16">
+			<h2 class="text-3xl font-semibold tracking-tight">Safety, compliance and EWP high-access cleaning</h2>
+			<p class="mt-4 leading-7 text-white/80">
+				Commercial and industrial sites demand rigorous safety standards. Our solar panel cleaning contractors are fully trained, licensed, and insured — with documented processes that meet the requirements of asset managers and facilities teams across Adelaide and South Australia.
+			</p>
+			<ul class="mt-6 list-disc space-y-2 pl-5 text-white/80">
+				<li>$20M public liability</li>
+				<li>Trained and licensed technicians</li>
+				<li>Safe Work Method Statements and site-specific risk assessments for every project</li>
+				<li>10+ years industry experience</li>
+				<li>South Australia’s first solar cleaning robot</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-5xl px-5 py-16">
+		<h2 class="text-3xl font-semibold tracking-tight">Trusted by commercial and industrial clients</h2>
+		<div class="mt-8">
+			<Testimonials />
+		</div>
+	</section>
+
+	<section class="border-t border-line bg-accent-soft">
+		<div class="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr]">
+			<div>
+				<h2 class="text-3xl font-semibold tracking-tight">Request a commercial solar cleaning assessment</h2>
+				<p class="mt-4 leading-7 text-muted">
+					With over 10 years of experience as Adelaide’s commercial solar panel cleaning contractors, we deliver the professionalism, safety standards, and performance optimisation results your assets deserve across South Australia.
+				</p>
+			</div>
+			<QuoteForm />
+		</div>
+	</section>
+</BaseLayout>

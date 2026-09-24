@@ -2,7 +2,7 @@
 
 Static website for Australian Solar Care, a company that cleans solar panels on homes and commercial sites.
 
-Phone, email, service area, licences, and the production domain are placeholders. Replace them in `src/data/site.ts`, `astro.config.mjs`, and `public/robots.txt` before launch.
+Phone, email, and service area are taken from the public site. The quote form does not send yet.
 
 ## Commands
 
@@ -18,9 +18,8 @@ The dev server runs at `http://localhost:4321`.
 ## Pages
 
 - `/` home
-- `/about`
-- `/services`
-- `/services/residential` and `/services/commercial`, from the services content collection
+- `/services`, `/services/residential`, `/services/commercial`, `/services/bird-proofing`, `/services/operations-maintenance`
+- `/gallery`
 - `/contact` — the form validates in the browser and does not send a message
 
 ## Performance

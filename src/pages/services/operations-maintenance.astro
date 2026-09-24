@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+---
+
+<BaseLayout
+	title="Commercial O&M"
+	description="Commercial operations and maintenance for large solar systems across SA, WA, QLD, NSW and VIC."
+>
+	<section class="mx-auto max-w-3xl px-5 py-16">
+		<p class="text-sm font-semibold uppercase tracking-[0.14em] text-accent">Servicing SA, WA, QLD, NSW and VIC</p>
+		<h1 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+			Commercial operations and maintenance (O&M)
+		</h1>
+		<div class="mt-6 space-y-4 leading-7 text-muted">
+			<p>
+				Australian Solar Care has invested heavily in the right equipment to undertake large scale solar panel cleaning, safely and efficiently. We have the first of its type solar panel cleaning robot in South Australia to maintain large and complex 5B and Peg installation solar panel systems.
+			</p>
+			<p>
+				The economics of installing a large scale PV system adds up, however dirt or shaded solar panels can diminish energy production of the overall system by up to 25%, increasing the ROI timeframe.
+			</p>
+			<p>
+				Knowledge and experience gained from large scale PV system construction around the world shows that O&M services are now so fundamental to the efficient operation of a PV system that project funding for large scale PV systems without a long term O&M plan will not be funded.
+			</p>
+			<p>
+				Further considering manufacturers’ care and maintenance requirements to maintain a PV system’s warranty, O&M services are a must for any commercial or large scale PV system.
+			</p>
+		</div>
+		<h2 class="mt-10 text-2xl font-semibold">O&M services</h2>
+		<p class="mt-2 text-muted">Quarterly, bi-annual or annual services</p>
+		<ul class="mt-4 list-disc space-y-2 pl-5 leading-7 text-muted">
+			<li>Solar panel inspection</li>
+			<li>Solar panel cleaning</li>
+			<li>Ground maintenance (soft shading removal)</li>
+			<li>Observation condition reporting</li>
+			<li>Warranty administration support</li>
+			<li>Scheduled maintenance plan logistics management</li>
+		</ul>
+		<h2 class="mt-10 text-2xl font-semibold">Processes, procedures and equipment</h2>
+		<ul class="mt-4 list-disc space-y-2 pl-5 leading-7 text-muted">
+			<li>Local government compliant processes and procedures</li>
+			<li>Job Safety and Environmental Analysis (JSEA) documentation</li>
+			<li>High risk work licence</li>
+			<li>EWP licence (above 15 metres)</li>
+			<li>Full safety procedures and supporting equipment</li>
+		</ul>
+	</section>
+
+	<section class="border-t border-line bg-accent-soft">
+		<div class="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr]">
+			<div>
+				<h2 class="text-3xl font-semibold tracking-tight">Request an O&M quote</h2>
+				<p class="mt-4 leading-7 text-muted">
+					Fill out the form below and we’ll get back to you within 24 hours with a customised quote.
+				</p>
+			</div>
+			<QuoteForm />
+		</div>
+	</section>
+</BaseLayout>

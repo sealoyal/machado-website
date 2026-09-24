@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Placeholder from '../components/Placeholder.astro';
+
+const shots = [
+	'Residential system – Adelaide',
+	'Residential roof – regional SA',
+	'120kW carport system – Adelaide',
+	'120kW warehouse system – Adelaide',
+	'2.5MW warehouse – regional SA',
+	'2.5MW solar system – regional SA',
+	'Adelaide, SA',
+	'Port Adelaide, SA',
+	'Adelaide Hills, SA',
+	'Glenelg, SA',
+	'Sydney, NSW',
+	'Gold Coast, QLD',
+];
+---
+
+<BaseLayout
+	title="Gallery"
+	description="Solar panel cleaning and bird proofing for residential and commercial properties."
+>
+	<section class="mx-auto max-w-5xl px-5 py-16">
+		<h1 class="text-4xl font-semibold tracking-tight md:text-5xl">Gallery</h1>
+		<p class="mt-4 max-w-2xl leading-7 text-muted">
+			Solar panel cleaning services for residential and commercial properties. Eco-friendly cleaning with 100% pure water and no chemicals. Streak-free finish with the HiFlo CarbonTec System. Fully trained, licensed and insured technicians.
+		</p>
+		<div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{shots.map((label) => <Placeholder label={label} />)}
+		</div>
+	</section>
+</BaseLayout>
