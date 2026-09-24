@@ -1,0 +1,102 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+	id: string;
+	tone?: 'dark' | 'light';
+	intro?: string;
+}
+
+const { id, tone = 'light', intro } = Astro.props;
+const dark = tone === 'dark';
+const field =
+	'mt-1 w-full rounded-lg border px-3 py-2 ' +
+	(dark
+		? 'border-white/15 bg-white/10 text-white placeholder:text-white/50'
+		: 'border-line bg-canvas text-ink');
+---
+
+<form
+	id={id}
+	data-assessment-form
+	class:list={[
+		'grid gap-4 rounded-2xl p-6',
+		dark ? 'border border-white/15 bg-white/10' : 'border border-line bg-white',
+	]}
+	novalidate
+>
+	{
+		intro && (
+			<p class:list={['text-sm', dark ? 'text-white/80' : 'text-muted']}>{intro}</p>
+		)
+	}
+	<div class="grid gap-4 sm:grid-cols-2">
+		<div>
+			<label for={`${id}-name`} class="text-sm font-semibold">Name</label>
+			<input id={`${id}-name`} name="name" type="text" required autocomplete="name" placeholder="Your name" class={field} />
+			<p class="mt-1 hidden text-sm text-sun" data-for={`${id}-name`}>Enter your name.</p>
+		</div>
+		<div>
+			<label for={`${id}-company`} class="text-sm font-semibold">Company</label>
+			<input id={`${id}-company`} name="company" type="text" required autocomplete="organization" placeholder="Company name" class={field} />
+			<p class="mt-1 hidden text-sm text-sun" data-for={`${id}-company`}>Enter your company.</p>
+		</div>
+		<div>
+			<label for={`${id}-email`} class="text-sm font-semibold">Email</label>
+			<input id={`${id}-email`} name="email" type="email" required autocomplete="email" placeholder="email@company.com" class={field} />
+			<p class="mt-1 hidden text-sm text-sun" data-for={`${id}-email`}>Enter a valid email address.</p>
+		</div>
+		<div>
+			<label for={`${id}-phone`} class="text-sm font-semibold">Phone</label>
+			<input id={`${id}-phone`} name="phone" type="tel" required autocomplete="tel" placeholder="0400 000 000" class={field} />
+			<p class="mt-1 hidden text-sm text-sun" data-for={`${id}-phone`}>Enter your phone number.</p>
+		</div>
+		<div>
+			<label for={`${id}-address`} class="text-sm font-semibold">Site address</label>
+			<input id={`${id}-address`} name="address" type="text" autocomplete="street-address" placeholder="Site location" class={field} />
+		</div>
+		<div>
+			<label for={`${id}-size`} class="text-sm font-semibold">System size (kW)</label>
+			<input id={`${id}-size`} name="size" type="text" placeholder="e.g. 100kW" class={field} />
+		</div>
+	</div>
+	<div>
+		<label for={`${id}-message`} class="text-sm font-semibold">Message</label>
+		<textarea id={`${id}-message`} name="message" rows="4" placeholder="Tell us about your solar system and cleaning requirements..." class={field}></textarea>
+	</div>
+	<button type="submit" class="rounded-full bg-green px-5 py-3 text-sm font-semibold text-navy">
+		Request commercial assessment
+	</button>
+	<p class:list={['text-sm', dark ? 'text-white/70' : 'text-muted']}>
+		This preview does not send the form yet. Call {site.phone} or email {site.email}.
+	</p>
+</form>
+<p id={`${id}-success`} hidden class="rounded-2xl border border-line bg-panel p-6 leading-7 text-ink">
+	Thanks. This is a preview only, so the assessment request was not sent. Call {site.phone} or email {site.email}.
+</p>
+
+<script>
+	document.querySelectorAll('[data-assessment-form]').forEach((form) => {
+		if (!(form instanceof HTMLFormElement) || form.dataset.bound === 'true') return;
+		form.dataset.bound = 'true';
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const fields = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea');
+			let valid = true;
+			fields.forEach((field) => {
+				const message = form.querySelector(`[data-for="${field.id}"]`);
+				if (message instanceof HTMLElement) message.classList.add('hidden');
+				field.removeAttribute('aria-invalid');
+				if (!field.checkValidity()) {
+					valid = false;
+					if (message instanceof HTMLElement) message.classList.remove('hidden');
+					field.setAttribute('aria-invalid', 'true');
+				}
+			});
+			const success = document.getElementById(`${form.id}-success`);
+			if (!valid || !(success instanceof HTMLElement)) return;
+			form.hidden = true;
+			success.hidden = false;
+		});
+	});
+</script>
