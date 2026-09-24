@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
+import Icon from './Icon.astro';
 import { nav } from '../data/site';
 
 const pathname = Astro.url.pathname;
@@ -13,7 +14,7 @@ function isCurrent(href: string) {
 
 <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-md">
 	<div class="h-1 bg-gradient-to-r from-green via-accent to-sun" aria-hidden="true"></div>
-	<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 px-5 py-3">
+	<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-3 px-5 py-3 md:gap-x-6">
 		<a href="/" class="inline-flex items-center">
 			<Image
 				src={logo}
@@ -25,13 +26,29 @@ function isCurrent(href: string) {
 				class="h-12 w-auto md:h-14"
 			/>
 		</a>
+		<a
+			href="/contact"
+			aria-current={isCurrent('/contact') ? 'page' : undefined}
+			class:list={[
+				'ml-auto rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy md:hidden',
+				isCurrent('/contact') && 'ring-2 ring-navy',
+			]}
+		>
+			Contact
+		</a>
 		<input id="nav-toggle" type="checkbox" />
 		<label
 			for="nav-toggle"
-			class="ml-auto cursor-pointer rounded-md border border-line px-3 py-2 text-sm font-semibold"
+			class="grid size-11 cursor-pointer place-items-center rounded-md border border-line text-ink"
 		>
-			<span class="label-open">Menu</span>
-			<span class="label-close">Close</span>
+			<span class="label-open">
+				<Icon name="menu" class="size-5" />
+				<span class="sr-only">Menu</span>
+			</span>
+			<span class="label-close">
+				<Icon name="close" class="size-5" />
+				<span class="sr-only">Close</span>
+			</span>
 		</label>
 		<nav id="site-nav" aria-label="Primary">
 			{
@@ -41,7 +58,7 @@ function isCurrent(href: string) {
 						aria-current={isCurrent(item.href) ? 'page' : undefined}
 						class:list={[
 							item.href === '/contact'
-								? 'rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy md:ml-2'
+								? 'max-md:hidden rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy md:ml-2'
 								: 'rounded-md px-2 py-2 text-sm font-semibold',
 							item.href !== '/contact' && (isCurrent(item.href) ? 'text-accent' : 'text-ink'),
 							item.href === '/contact' && isCurrent(item.href) && 'ring-2 ring-navy',
