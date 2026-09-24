@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+import { nav } from '../data/site';
+
+const pathname = Astro.url.pathname;
+
+function isCurrent(href: string) {
+	if (href === '/') return pathname === '/';
+	return pathname === href || pathname.startsWith(`${href}/`);
+}
+---
+
+<header class="sticky top-0 z-10 border-b border-line bg-white/95">
+	<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 px-5 py-3">
+		<a href="/" class="inline-flex items-center">
+			<Image
+				src={logo}
+				alt="Australian Solar Care, panel cleaning specialist"
+				width={168}
+				height={56}
+				layout="fixed"
+				loading="eager"
+				class="h-12 w-auto md:h-14"
+			/>
+		</a>
+		<input id="nav-toggle" type="checkbox" />
+		<label
+			for="nav-toggle"
+			class="ml-auto cursor-pointer rounded-md border border-line px-3 py-2 text-sm font-semibold"
+		>
+			<span class="label-open">Menu</span>
+			<span class="label-close">Close</span>
+		</label>
+		<nav id="site-nav" aria-label="Primary">
+			{
+				nav.map((item) => (
+					<a
+						href={item.href}
+						aria-current={isCurrent(item.href) ? 'page' : undefined}
+						class:list={[
+							'rounded-md px-2 py-2 text-sm font-semibold',
+							isCurrent(item.href) ? 'text-accent' : 'text-ink',
+						]}
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</header>

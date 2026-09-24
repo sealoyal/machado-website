@@ -1,0 +1,42 @@
+---
+import { Font } from 'astro:assets';
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<Font
+			cssVariable="--font-outfit"
+			preload={[{ weight: 400, style: 'normal', subset: 'latin' }]}
+		/>
+		<Seo title={title} description={description} />
+	</head>
+	<body class="flex min-h-screen flex-col">
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-20 focus:bg-white focus:px-3 focus:py-2"
+		>
+			Skip to content
+		</a>
+		<Header />
+		<main id="main" class="flex-1">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

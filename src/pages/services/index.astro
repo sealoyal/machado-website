@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { getServices } from '../../lib/services';
+
+const services = await getServices();
+---
+
+<BaseLayout
+	title="Services"
+	description="Residential and commercial solar panel cleaning from Australian Solar Care."
+>
+	<section class="mx-auto max-w-5xl px-5 py-16">
+		<p class="text-sm font-semibold uppercase tracking-[0.14em] text-accent">Services</p>
+		<h1 class="mt-3 max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl">
+			Cleaning for homes and commercial arrays
+		</h1>
+		<p class="mt-5 max-w-2xl text-lg leading-8 text-muted">
+			Choose the visit that matches the site. Each page describes what the clean covers.
+		</p>
+		<div class="mt-10 grid gap-4 md:grid-cols-2">
+			{services.map((service) => <ServiceCard service={service} />)}
+		</div>
+	</section>
+</BaseLayout>
