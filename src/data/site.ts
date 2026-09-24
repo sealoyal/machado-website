@@ -22,24 +22,28 @@ export const services = [
 		title: 'Residential systems',
 		summary:
 			'Professional solar panel cleaning and maintenance across Adelaide and regional areas.',
+		icon: 'home',
 	},
 	{
 		href: '/services/commercial',
 		title: 'Commercial solutions',
 		summary:
 			'Large-scale solar panel cleaning, including South Australia’s first solar cleaning robot.',
+		icon: 'building',
 	},
 	{
 		href: '/services/bird-proofing',
 		title: 'Bird proofing',
 		summary:
 			'Approved, warranty-safe bird proofing to stop birds and animals nesting under solar panels.',
+		icon: 'bird',
 	},
 	{
 		href: '/services/operations-maintenance',
 		title: 'Commercial O&M',
 		summary:
 			'Quarterly, bi-annual, or annual operations and maintenance for large PV systems.',
+		icon: 'wrench',
 	},
 ] as const;
 

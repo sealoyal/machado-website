@@ -4,9 +4,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import Placeholder from '../components/Placeholder.astro';
 import QuoteForm from '../components/QuoteForm.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 import Testimonials from '../components/Testimonials.astro';
 import hero from '../assets/hero-commercial-cleaning.jpg';
 import { services, site } from '../data/site';
+
+const reasons = [
+	{
+		icon: 'eye' as const,
+		title: 'Solar system health check',
+		text: 'Visual inspection to identify issues and potential risks.',
+	},
+	{
+		icon: 'shield' as const,
+		title: 'Fully insured – $20M public liability',
+		text: 'Insurance coverage for peace of mind.',
+	},
+	{
+		icon: 'wrench' as const,
+		title: 'Qualified solar technicians',
+		text: 'Trained, insured and safety-focused professionals.',
+	},
+];
+
+const results = [
+	{ figure: '+27%', label: 'Commercial' },
+	{ figure: '+23%', label: 'Residential' },
+	{ figure: '+22%', label: 'Solar farms' },
+];
+
+const galleryPoints = [
+	{ icon: 'droplet' as const, text: 'Eco-friendly cleaning – 100% pure water, no chemicals' },
+	{ icon: 'spark' as const, text: 'Streak-free finish – HiFlo CarbonTec System (no marks or residue)' },
+	{ icon: 'shield' as const, text: 'Trusted experts – fully trained, licensed and insured technicians' },
+	{ icon: 'clock' as const, text: 'Professional and reliable – fast, friendly, and on time' },
+];
 ---
 
 <BaseLayout title={site.name} description={site.description}>
@@ -24,15 +56,13 @@ import { services, site } from '../data/site';
 		<div class="absolute inset-0 -z-10 bg-navy/55 md:bg-transparent md:bg-gradient-to-r md:from-navy/90 md:via-navy/55 md:to-navy/20" aria-hidden="true"></div>
 		<div class="mx-auto max-w-5xl px-5 py-20 md:py-28">
 			<div class="max-w-xl">
-				<p class="text-sm font-semibold uppercase tracking-[0.14em] text-sun">
-					Solar panel cleaning, Adelaide, South Australia
-				</p>
-				<h1 class="mt-3 text-4xl font-semibold tracking-tight text-balance text-white md:text-5xl">
+				<p class="kicker text-sun">Solar panel cleaning, Adelaide, South Australia</p>
+				<h1 class="mt-3 text-4xl font-semibold tracking-tight text-white md:text-5xl">
 					Solar panel cleaning and maintenance in Adelaide and South Australia
 				</h1>
-				<p class="mt-4 text-lg text-white/80">Approved installer for bird and pest proofing systems</p>
+				<p class="mt-4 text-lg text-white/85">Approved installer for bird and pest proofing systems</p>
 				<div class="mt-8 flex flex-wrap gap-3">
-					<a href="/contact" class="rounded-full bg-white px-5 py-3 text-sm font-semibold text-navy focus-visible:outline-white">
+					<a href="/contact" class="rounded-full bg-green px-5 py-3 text-sm font-semibold text-navy focus-visible:outline-white">
 						Get a quote
 					</a>
 					<a href={site.phoneHref} class="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white focus-visible:outline-white">
@@ -40,102 +70,121 @@ import { services, site } from '../data/site';
 						Call us
 					</a>
 				</div>
+				<ul class="mt-8 flex flex-col gap-2 text-sm text-white/85 sm:flex-row sm:flex-wrap sm:gap-x-5">
+					<li class="inline-flex items-center gap-2">
+						<Icon name="shield" />
+						$20M public liability
+					</li>
+					<li class="inline-flex items-center gap-2">
+						<Icon name="pin" />
+						{site.area}
+					</li>
+				</ul>
 			</div>
 		</div>
 	</section>
 
-	<section class="mx-auto max-w-3xl px-5 py-16">
-		<h2 class="text-3xl font-semibold tracking-tight">Solar panels are not self-cleaning</h2>
-		<p class="mt-4 leading-7 text-muted">
-			For years, many manufacturers claimed solar panels were self-cleaning. But research – and real-world experience – prove otherwise. While they are low-maintenance, they are definitely not maintenance-free.
-		</p>
+	<section class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+		<div class="grid items-start gap-6 border-l-4 border-green pl-6 md:grid-cols-[auto_1fr] md:gap-8">
+			<span class="grid size-12 place-items-center rounded-2xl bg-panel text-navy">
+				<Icon name="sun" class="size-6" />
+			</span>
+			<div class="max-w-2xl">
+				<h2 class="text-3xl font-semibold tracking-tight">Solar panels are not self-cleaning</h2>
+				<p class="mt-4 leading-7 text-muted">
+					For years, many manufacturers claimed solar panels were self-cleaning. But research – and real-world experience – prove otherwise. While they are low-maintenance, they are definitely not maintenance-free.
+				</p>
+			</div>
+		</div>
 	</section>
 
 	<section class="border-t border-line bg-accent-soft">
-		<div class="mx-auto max-w-5xl px-5 py-16">
-			<h2 class="text-3xl font-semibold tracking-tight">Our service</h2>
+		<div class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+			<div class="flex flex-wrap items-end justify-between gap-4">
+				<div>
+					<p class="kicker text-accent">Services</p>
+					<h2 class="mt-3 text-3xl font-semibold tracking-tight">Our service</h2>
+				</div>
+				<a href="/services" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+					All services
+					<Icon name="arrow" class="size-4" />
+				</a>
+			</div>
 			<div class="mt-8 grid gap-4 md:grid-cols-3">
-				{
-					services.slice(0, 3).map((service) => (
-						<article class="flex h-full flex-col rounded-2xl border border-line bg-white p-6">
-							<Placeholder label={`${service.title} image placeholder`} />
-							<h3 class="mt-5 text-2xl font-semibold tracking-tight">
-								<a href={service.href}>{service.title}</a>
-							</h3>
-							<p class="mt-3 flex-1 leading-7 text-muted">{service.summary}</p>
-							<a href={service.href} class="mt-5 text-sm font-semibold text-accent">Learn more</a>
-						</article>
-					))
-				}
+				{services.slice(0, 3).map((service) => <ServiceCard {...service} />)}
 			</div>
 		</div>
 	</section>
 
-	<section class="mx-auto max-w-5xl px-5 py-16">
-		<h2 class="text-3xl font-semibold tracking-tight">Why choose Australian Solar Care?</h2>
+	<section class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+		<p class="kicker text-accent">Why us</p>
+		<h2 class="mt-3 text-3xl font-semibold tracking-tight">Why choose Australian Solar Care?</h2>
 		<div class="mt-8 grid gap-4 md:grid-cols-3">
-			<article class="rounded-2xl border border-line p-6">
-				<h3 class="font-semibold">Solar system health check</h3>
-				<p class="mt-2 leading-7 text-muted">Visual inspection to identify issues and potential risks.</p>
-			</article>
-			<article class="rounded-2xl border border-line p-6">
-				<h3 class="font-semibold">Fully insured – $20M public liability</h3>
-				<p class="mt-2 leading-7 text-muted">Insurance coverage for peace of mind.</p>
-			</article>
-			<article class="rounded-2xl border border-line p-6">
-				<h3 class="font-semibold">Qualified solar technicians</h3>
-				<p class="mt-2 leading-7 text-muted">Trained, insured and safety-focused professionals.</p>
-			</article>
+			{
+				reasons.map((reason) => (
+					<article class="rounded-2xl border border-line border-t-4 border-t-green bg-white p-6">
+						<span class="grid size-11 place-items-center rounded-2xl bg-accent-soft text-accent">
+							<Icon name={reason.icon} class="size-5" />
+						</span>
+						<h3 class="mt-5 font-semibold">{reason.title}</h3>
+						<p class="mt-2 leading-7 text-muted">{reason.text}</p>
+					</article>
+				))
+			}
 		</div>
 	</section>
 
 	<section class="border-t border-line bg-navy text-white">
-		<div class="mx-auto max-w-5xl px-5 py-16">
-			<h2 class="text-3xl font-semibold tracking-tight">Proven results</h2>
+		<div class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+			<p class="kicker text-sun">Results</p>
+			<h2 class="mt-3 text-3xl font-semibold tracking-tight">Proven results</h2>
 			<p class="mt-4 max-w-2xl leading-7 text-white/80">
 				Our maintenance solutions deliver measurable improvements to your solar system’s performance. See the real-world results our clients experience.
 			</p>
-			<p class="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-sun">
-				Performance improvement after professional maintenance, up to:
-			</p>
-			<dl class="mt-6 grid gap-4 sm:grid-cols-3">
-				<div>
-					<dt class="text-sm text-white/70">Commercial</dt>
-					<dd class="text-4xl font-semibold">+27%</dd>
-				</div>
-				<div>
-					<dt class="text-sm text-white/70">Residential</dt>
-					<dd class="text-4xl font-semibold">+23%</dd>
-				</div>
-				<div>
-					<dt class="text-sm text-white/70">Solar farms</dt>
-					<dd class="text-4xl font-semibold">+22%</dd>
-				</div>
+			<p class="mt-8 text-sm text-white/70">Performance improvement after professional maintenance, up to:</p>
+			<dl class="mt-4 grid overflow-hidden rounded-2xl border border-white/15 sm:grid-cols-3">
+				{
+					results.map((item) => (
+						<div class="border-b border-white/15 px-6 py-8 last:border-b-0 sm:border-r sm:border-b-0 sm:last:border-r-0">
+							<dd class="text-5xl font-semibold tracking-tight text-sun">{item.figure}</dd>
+							<dt class="mt-2 text-sm text-white/75">{item.label}</dt>
+						</div>
+					))
+				}
 			</dl>
 		</div>
 	</section>
 
-	<section class="mx-auto max-w-5xl px-5 py-16">
-		<h2 class="text-3xl font-semibold tracking-tight">Satisfied customers</h2>
+	<section class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+		<p class="kicker text-accent">Customers</p>
+		<h2 class="mt-3 text-3xl font-semibold tracking-tight">Satisfied customers</h2>
 		<div class="mt-8">
 			<Testimonials />
 		</div>
 	</section>
 
 	<section class="border-t border-line">
-		<div class="mx-auto grid max-w-5xl gap-8 px-5 py-16 md:grid-cols-[0.8fr_1.2fr]">
+		<div class="mx-auto grid max-w-5xl items-center gap-8 px-5 py-16 md:grid-cols-[0.8fr_1.2fr] md:py-20">
 			<div>
-				<h2 class="text-3xl font-semibold tracking-tight">Gallery</h2>
+				<p class="kicker text-accent">Work</p>
+				<h2 class="mt-3 text-3xl font-semibold tracking-tight">Gallery</h2>
 				<p class="mt-4 leading-7 text-muted">
 					Solar panel cleaning services for residential and commercial properties.
 				</p>
-				<ul class="mt-4 list-disc space-y-2 pl-5 leading-7 text-muted">
-					<li>Eco-friendly cleaning – 100% pure water, no chemicals</li>
-					<li>Streak-free finish – HiFlo CarbonTec System (no marks or residue)</li>
-					<li>Trusted experts – fully trained, licensed and insured technicians</li>
-					<li>Professional and reliable – fast, friendly, and on time</li>
+				<ul class="mt-6 space-y-3">
+					{
+						galleryPoints.map((point) => (
+							<li class="flex items-start gap-3 leading-7 text-muted">
+								<Icon name={point.icon} class="mt-1 size-4 text-accent" />
+								{point.text}
+							</li>
+						))
+					}
 				</ul>
-				<a href="/gallery" class="mt-6 inline-flex text-sm font-semibold text-accent">View the gallery</a>
+				<a href="/gallery" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+					View the gallery
+					<Icon name="arrow" class="size-4" />
+				</a>
 			</div>
 			<div class="grid grid-cols-2 gap-3">
 				<Placeholder label="Gallery image placeholder" />
@@ -147,9 +196,10 @@ import { services, site } from '../data/site';
 	</section>
 
 	<section class="border-t border-line bg-accent-soft">
-		<div class="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr]">
+		<div class="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr] md:py-20">
 			<div>
-				<h2 class="text-3xl font-semibold tracking-tight">Get a quote</h2>
+				<p class="kicker text-accent">Quote</p>
+				<h2 class="mt-3 text-3xl font-semibold tracking-tight">Get a quote</h2>
 				<p class="mt-4 leading-7 text-muted">
 					Fill out the form below and we’ll get back to you within 24 hours with a customised quote.
 				</p>

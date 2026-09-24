@@ -4,26 +4,36 @@ import { nav, site } from '../data/site';
 ---
 
 <footer class="mt-auto bg-navy text-white">
-	<div class="mx-auto grid max-w-5xl gap-8 px-5 py-10 sm:grid-cols-2">
+	<div class="h-1 bg-gradient-to-r from-green via-accent to-sun" aria-hidden="true"></div>
+	<div class="mx-auto grid max-w-5xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-3">
 		<div>
-			<p class="font-semibold">{site.name}</p>
-			<p class="mt-2 max-w-sm text-sm leading-6 text-white/80">{site.tagline}</p>
+			<p class="text-lg font-semibold">{site.name}</p>
+			<p class="mt-2 max-w-xs text-sm leading-6 text-white/75">{site.tagline}</p>
 		</div>
 		<div class="text-sm leading-6">
-			<p>
-				<a href={site.phoneHref} class="inline-flex items-center gap-2 font-semibold text-white">
-					<Icon name="phone" />
-					{site.phone}
-				</a>
-			</p>
-			<p>
-				<a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 font-semibold text-white">
-					<Icon name="mail" />
-					{site.email}
-				</a>
-			</p>
-			<p>{site.area}</p>
-			<ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+			<p class="kicker text-sun">Contact</p>
+			<ul class="mt-4 space-y-3">
+				<li>
+					<a href={site.phoneHref} class="inline-flex items-center gap-2 font-semibold text-white">
+						<Icon name="phone" />
+						{site.phone}
+					</a>
+				</li>
+				<li>
+					<a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 font-semibold text-white">
+						<Icon name="mail" />
+						{site.email}
+					</a>
+				</li>
+				<li class="inline-flex items-center gap-2 text-white/80">
+					<Icon name="pin" />
+					{site.area}
+				</li>
+			</ul>
+		</div>
+		<nav aria-label="Footer">
+			<p class="kicker text-sun">Explore</p>
+			<ul class="mt-4 space-y-2 text-sm">
 				{
 					nav.map((item) => (
 						<li>
@@ -34,7 +44,9 @@ import { nav, site } from '../data/site';
 					))
 				}
 			</ul>
-			<p class="mt-6 text-white/70">Australian Solar Care Pty Ltd © 2014–2025</p>
-		</div>
+		</nav>
 	</div>
+	<p class="mx-auto max-w-5xl border-t border-white/15 px-5 py-5 text-sm text-white/60">
+		Australian Solar Care Pty Ltd © 2014–2025
+	</p>
 </footer>

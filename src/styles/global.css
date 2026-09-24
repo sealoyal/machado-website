@@ -29,6 +29,18 @@ body {
 	outline-offset: 3px;
 }
 
+h1,
+h2 {
+	text-wrap: balance;
+}
+
+.kicker {
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
 #nav-toggle {
 	position: absolute;
 	width: 1px;
@@ -79,7 +91,8 @@ body {
 
 	#site-nav {
 		display: flex;
-		gap: 1.5rem;
+		align-items: center;
+		gap: 1.25rem;
 		margin-left: auto;
 	}
 }

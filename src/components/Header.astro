@@ -11,7 +11,8 @@ function isCurrent(href: string) {
 }
 ---
 
-<header class="sticky top-0 z-10 border-b border-line bg-white/95">
+<header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-md">
+	<div class="h-1 bg-gradient-to-r from-green via-accent to-sun" aria-hidden="true"></div>
 	<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 px-5 py-3">
 		<a href="/" class="inline-flex items-center">
 			<Image
@@ -40,7 +41,7 @@ function isCurrent(href: string) {
 						aria-current={isCurrent(item.href) ? 'page' : undefined}
 						class:list={[
 							item.href === '/contact'
-								? 'rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy'
+								? 'rounded-full bg-green px-4 py-2 text-sm font-semibold text-navy md:ml-2'
 								: 'rounded-md px-2 py-2 text-sm font-semibold',
 							item.href !== '/contact' && (isCurrent(item.href) ? 'text-accent' : 'text-ink'),
 							item.href === '/contact' && isCurrent(item.href) && 'ring-2 ring-navy',
